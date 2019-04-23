@@ -18,8 +18,11 @@ public class XmlParser {
         XPathFactory xPathfactory = XPathFactory.newInstance();
         XPath xpath = xPathfactory.newXPath();
         NodeList list = (NodeList) xpath
-                .compile("/BookCatalogue")
+                .compile("/BookCatalogue/Book")
                 .evaluate(doc, XPathConstants.NODESET);
-        System.out.println();
+        for(int i=0;i<list.getLength();i++){
+            Node item = list.item(i);
+            System.out.println(item);
+        }
     }
 }
